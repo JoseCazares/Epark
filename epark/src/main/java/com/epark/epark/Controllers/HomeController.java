@@ -29,7 +29,7 @@ public class HomeController {
             }
         } catch (Exception e) {
             modelo.addAttribute("user", false);
-            modelo.addAttribute("nombreU", currentUser.getUsuario());
+            modelo.addAttribute("nombreU", "");
         }
 
         return "/Home/Index";
