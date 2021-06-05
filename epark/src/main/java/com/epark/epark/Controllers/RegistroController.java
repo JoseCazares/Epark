@@ -102,7 +102,7 @@ public class RegistroController {
         try {
             int iduser = Integer.parseInt(session.getAttribute("iduser").toString());
             if (servicioAutomovil.IsthereCar(iduser) == false) {
-                session.setAttribute("mensajeReg",
+                session.setAttribute("mensaje",
                         "Ultimo aviso: Antes de hacer una reservación debe agregar un automovil");
                 return "redirect:/Autos/listar";
             }
