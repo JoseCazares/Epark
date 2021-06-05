@@ -29,12 +29,13 @@ public class HomeController {
             }
         } catch (Exception e) {
             modelo.addAttribute("user", false);
+            modelo.addAttribute("nombreU", currentUser.getUsuario());
         }
 
         return "/Home/Index";
-    }
+    }	
 
-    @GetMapping("/Funcion")
+    @GetMapping("/funcion")
     public String Funcion(HttpSession session, Model modelo) {
         try {
             currentUser = serviciocliente.FindById(Integer.parseInt(session.getAttribute("iduser").toString()));
@@ -44,6 +45,7 @@ public class HomeController {
             }
         } catch (Exception e) {
             modelo.addAttribute("user", false);
+            modelo.addAttribute("nombreU", currentUser.getUsuario());   
         }
 
         return "/Home/Funcion";
