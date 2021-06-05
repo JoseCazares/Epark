@@ -199,7 +199,7 @@ public class RegistroController {
 
         } catch (Exception e) {
             model.addAttribute("mensajeReg", e.getCause());
-            return "/Reserva/Error";
+            return "Reserva/Error";
         }
     }
 }

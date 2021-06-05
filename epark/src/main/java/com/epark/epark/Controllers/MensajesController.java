@@ -31,7 +31,7 @@ public class MensajesController {
             Iterable<Contacto> mensajes = servicioMensajes.TodosMensajes();
             if (mensajes.iterator().hasNext()) {
                 modelo.addAttribute("contactos", mensajes);
-                modelo.addAttribute("error", sesion.getAttribute("mensaje"));
+                modelo.addAttribute("error", sesion.getAttribute("mensajeContact"));
             } else {
                 modelo.addAttribute("error", "No hay contactos registrados");
             }
@@ -71,7 +71,7 @@ public class MensajesController {
     public String agregar(Model modelo, @ModelAttribute Contacto mensajes, HttpSession session) {
         boolean res = servicioMensajes.agregar(mensajes, session);
         if (res) {
-            session.setAttribute("mensaje", servicioMensajes.getMensaje());
+            session.setAttribute("mensajeContact", servicioMensajes.getMensaje());
             return "redirect:/Contacto/Listar";
         }
         session.setAttribute("mensaje", servicioMensajes.getMensaje());
@@ -90,7 +90,7 @@ public class MensajesController {
             modelo.addAttribute("user", false);
         }
         servicioMensajes.eliminar(idmensaje);
-        session.setAttribute("mensaje", servicioMensajes.getMensaje());
+        session.setAttribute("mensajeContact", servicioMensajes.getMensaje());
         return "redirect:/Contacto/Listar";
     }
 }

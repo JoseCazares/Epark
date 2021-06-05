@@ -35,7 +35,7 @@ public class ServicioMensaje {
     public boolean agregar(Contacto u, HttpSession sesion) {
         try {
             repoMensajes.save(u);
-            this.Mensaje = "Datos del contacto almacenados con éxito.";
+            this.Mensaje = "Ultimo aviso: Datos del contacto almacenados con éxito.";
             return true;
         } catch (Exception e) {
             this.Mensaje = "Error al registrar el contacto.";
@@ -60,7 +60,7 @@ public class ServicioMensaje {
                 return false;
             }
             repoMensajes.delete(contacto);
-            this.Mensaje = "Contacto eliminado con éxito";
+            this.Mensaje = "Ultimo aviso: Contacto eliminado con éxito";
             return true;
         } catch (Exception e) {
             this.Mensaje = "Error al eliminar el contacto.";
