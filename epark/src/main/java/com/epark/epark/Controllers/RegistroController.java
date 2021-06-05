@@ -81,7 +81,7 @@ public class RegistroController {
                     modelo.addAttribute("error", "No hay reservas hechas para este usuario");
                 }
             } else {
-                sesion.setAttribute("mensajeReg", "Debe agregar antes un automovil para hacer una reserva");
+                sesion.setAttribute("mensaje", "Debe agregar antes un automovil para hacer una reserva");
                 return "redirect:/Autos/listar";
             }
 
