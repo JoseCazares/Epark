@@ -42,10 +42,10 @@ public class AutomovilController {
     }
 
     private void currentUser(HttpSession sesion) {
-        if (currentUser == null) {
+        
             int iduser = Integer.parseInt(sesion.getAttribute("iduser").toString());
             currentUser = servicioCliente.FindById(iduser);
-        }
+        
     }
 
     @GetMapping("/Autos/listar")
