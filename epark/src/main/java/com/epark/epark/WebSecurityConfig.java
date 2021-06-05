@@ -12,7 +12,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/css/**", "/imagenes/**", "/js/**", "/usuario/**", "/Contacto/Agregar", "/Funcion")
+                .antMatchers("/", "/css/**", "/imagenes/**", "/js/**", "/usuario/**", "/Contacto/Agregar", "/funcion")
                 .permitAll().anyRequest().authenticated().and().formLogin().loginPage("/usuario/validar")
                 .successForwardUrl("/usuario/validar").permitAll().and().logout().permitAll();
     }
