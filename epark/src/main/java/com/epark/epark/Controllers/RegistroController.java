@@ -195,7 +195,7 @@ public class RegistroController {
             model.addAttribute("user", true);
             model.addAttribute("nombreU", currentUser.getUsuario());
             model.addAttribute("message", sesion.getAttribute("mensajeReg"));
-            return "/Reserva/Error";
+            return "Reserva/Error";
 
         } catch (Exception e) {
             model.addAttribute("mensajeReg", e.getCause());
