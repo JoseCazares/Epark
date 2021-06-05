@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+
+<head>
+    <meta charset="utf-8">
+    <title>Listado de reservas realizadas</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <div class="container">
+            <div class="jumbotron bg-dark">
+                <h1 class="display-4 text-white">Reservas realizadas por el usuario</h1>
+                <div th:if="*{error != null}" class="alert alert-warning alert-dimissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <h4 th:text="*{error}"></h4>
+                </div>
+                <div class="row">
+                    <a class="btn btn-info" th:href="@{/Reserva/Agregar}">Realizar una reserva</a>
+                </div>
+
+                <br>
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                        <table class="table table-hover table-dark table-striped">
+                            <thead>
+                                <th scope="col">Carro</th>
+                                <th scope="col">Fecha ingreso</th>
+                                <th scope="col">Fecha salida</th>
+                                <th scope="col">Hora de entrada</th>
+                                <th scope="col">Hora de salida</th>
+                                <th scope="col">Monto ($)</th>
+                                <th scope="col">Estatus</th>
+                                <th scope="col">Acciones</th>
+                            </thead>
+                            <tbody th:if="*{registros != null}">
+                                <tr data-th-each="registro : ${registros}">
+                                    <td data-th-text="${registro.automovil.modelo}"></td>
+                                    <td data-th-text="${registro.fechaIngreso}"></td>
+                                    <td data-th-text="${registro.fechaSalida}"></td>
+                                    <td data-th-text="${registro.horaEntrada}"></td>
+                                    <td data-th-text="${registro.horaSalida}"></td>
+                                    <td data-th-text="${registro.montoAPagar}"></td>
+                                    <td>
+                                        <span th:if="${registro.estatus} == A">Activo</span>
+                                        <span th:if="${registro.estatus} == C">Cancelado</span>
+                                    </td>
+
+                                    <td>
+                                        <a th:if="${registro.estatus} == A"
+                                            th:href="'/Reserva/Cancelar/'+ ${registro.idRegistro}"
+                                            class="btn btn-warning">Cancelar</a>
+                                            <button type="button" th:if="${registro.estatus} == C" class="btn btn-warning" disabled>Cancelar</button>
+                                                
+                                            
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

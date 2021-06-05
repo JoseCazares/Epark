@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+
+<head>
+    <meta charset="utf-8">
+    <title>Guardar un auto</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <div th:if="*{mensaje != null}" class="alert alert-warning alert-dimissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4 th:text="*{mensaje}"></h4>
+        </div>
+        <br>
+        <main class="jumbotron bg-dark">
+            <h2 class="display-4 text-white">Complete los campos para guardar</h2>
+            <hr class="my-4">
+            <p class="text-danger">*Todos los datos son obligatorios</p>
+            <p class="text-danger">*Si está agregando un nuevo carro tenga en cuenta que no se podrá eliminar</p>
+            <div class="text-white">
+                <a class="btn btn-info" th:href="@{/Autos/listar}">Ver autos</a>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <form action="#" th:action="@{${accion}}" method="POST">
+                        <input type="hidden" name="idAutomovil" id="txtidcliente" th:field="${modelo.idAutomovil}">
+                        <div class="form-group text-white">
+                            <label for="txtmodelo">Modelo:</label>
+                            <input type="text" name="modelo" id="txtmodelo" th:field="${modelo.modelo}"
+                                class="form-control" placeholder="Nombre que se mostrará cuando reserve un espacio"
+                                required="required" maxlength="40">
+                        </div>
+                        <div class="form-group text-white">
+                            <label for="txtmarca">Marca:</label>
+                            <input type="text" name="marca" id="txtmarca" th:field="${modelo.marca}"
+                                class="form-control" placeholder="CHEVROLET, NISSAN, FORD, BMW, ETC."
+                                required="required" maxlength="35">
+                        </div>
+                        <div class="form-group text-white">
+                            <label for="txtplacas">Placas:</label>
+                            <input type="text" name="placas" id="txtplacas" th:field="${modelo.placas}"
+                                class="form-control" placeholder="Placas del automovil sin guiones (-)"
+                                required="required" maxlength="7">
+                        </div>
+
+                        <div class="form-group  text-white">
+                            <label for="txtcolor">Color:</label>
+                            <select class="form-control" name="color" id="txtcolor" placeholder="Seleccione un color">
+
+                                <option>Negro</option>
+                                <option>Azul</option>
+                                <option>Amarillo</option>
+                                <option>Verde</option>
+                                <option>Blanco</option>
+                                <option>Rojo</option>
+                                <option>Gris</option>
+                                <option>Café</option>
+                            </select>
+
+                        </div>
+
+                        <div class="form-group text-white">
+                            <label for="txtdescripcion">Descripción del estado del vehiculo:</label>
+                            <textarea name="descripcion" id="txtdescripcion" th:field="${modelo.descripcion}"
+                                class="form-control"
+                                placeholder="Puede introducir alguna observacion del carro, golpes, rayones, precauciones, desperfectos, etc. "
+                                required="required" maxlength="50"></textarea>
+                        </div>
+                        <div class="alinear-derecha flex">
+                            <input class="btn btn-primary mb-2" type="submit" value="Registrar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

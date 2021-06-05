@@ -1,0 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Signika', sans-serif;
+}
+
+p {
+    font-size: 1.4rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor {
+    max-width: 900px;
+    margin: 15px auto;
+}
+
+.boton {
+    background-color: #ee5941;
+    color: white;
+    padding: 5px 20px;
+    margin: 15px 0 -6px 270px;
+    font-size: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 50px;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+@media (min-width: 480px) {
+    .boton {
+        width: auto;
+    }
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+/* Utilidades */
+.w-sm-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .w-sm-100 {
+        width: auto;
+    }
+}
+
+
+.menu {
+    margin-left: 20px;
+}
+
+.menu ul {
+    display: inline-flex;
+    margin: 30px;
+    list-style: none;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    margin: 0 20px;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.menu--activo {
+    color: #ee4951 !important;
+}
+
+.logo img {
+    width: 60px;
+    
+    margin-right: 48px;
+}
+
+.signup-btn {
+    top: 26px;
+    right: 160px;
+    position: absolute;
+    text-decoration: none;
+    color: white;
+    /*border: 2px solid transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(#ee5941, #ee5941), radial-gradient(circle at top left, #ee5941, #fff);
+    background-origin: border-box;
+    background-clip: content-box,border-box;*/
+}
+
+.signup-btn span {
+    display: block;
+    padding: 4px 11px;
+}
+
+.signin-btn {
+    top: 26px;
+    right: 20px;
+    position: absolute;
+    text-decoration: none;
+    color: white;
+    /*border: 2px solid #ee5941;
+    border-radius: 20px;
+    background: transparent;
+    background-origin: border-box;
+    background-clip: content-box,border-box;*/
+}
+
+.signin-btn:hover {
+    border: 2px solid white;
+}
+
+.signin-btn span {
+    display: block;
+    padding: 4px 11px;
+}
+
+h1 { font-size: 14px; }
+h2 { font-size: 13px; }
+h3 { font-size: 18px; }
+
+@media (min-width: 480px) {
+    h1 { font-size: 32px; }
+
+    h2{ font-size: 28px; }
+}
+
+h1, h2, h3 { text-align: center; }
+
+/* Hero */
+body {
+    background-image:  url(../imagenes/fondo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero {
+    height: 50vh;
+    width: 100%;
+    position: relative;
+    margin: auto;
+}
+.contenido-hero {
+    margin-top: 100px;
+}
+
+.contenido-hero p {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.contenido-hero h1,
+.contenido-hero h2,
+.contenido-hero p {
+    color: white;
+}
+
+/* Reservacion */
+.formulario {
+    background-color: rgba(128, 128, 128, .6);
+    width: min( 700px, 100%);
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 50px;
+}
+
+section h2 {
+    font-size: 20px;
+    color: white;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.campo {
+    text-align: center;
+}
+
+.campo label {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 20px;
+}
+
+.campo label,
+.input-campo {
+    text-align: center;
+}
+
+.campo textarea {
+    height: 56px;
+    width: 60%;
+}
+
+.campo a{
+    text-decoration: none;
+    color: white;
+}
+
+.campo span {
+    color: #19d7f8;
+}
+
+.input-campo {
+    width: 60%;
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+/* Funciones */
+@media (min-width: 768px) {
+    .funciones {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 10px;
+    }
+}
+
+.funciones {
+    background-color: rgba(128, 128, 128, .6);
+    width: 1000px;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 50px;
+}
+
+.funcion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.funcion h3 {
+    margin: 25px;
+    color: white;
+    font-weight: normal;
+}
+
+.funcion p {
+    margin-top: 25px;
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.funcion .iconos {
+    height: 90px;
+    width: 90px;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Pie */
+.footer {
+    height: 40px;
+    margin-bottom: 0;
+}
+
+.footer__texto {
+    text-align: center;
+    font-family: 'Signika', sans-serif;
+    font-size: 18px;
+    color: white;
+    padding-top: 10px;  
+}
+
+.pie__index {
+    margin-top: 70px;
+}
+
+.pie__reserva {
+    margin-top: 51px;
+}
+
+.pie__fun {
+    margin-top: 75px;
+}
+
+.pie__contac {
+    margin-top: 94px;
+}
+
+.pie__regis {
+    margin-top: 69px;
+}
+
+.pie__sesion {
+    margin-top: 157px;
+}
+
+.pie__contra {
+    margin-top: 270px;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Signika:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="/imagenes/parkwhite.png" sizes="32x32" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container">
+            <a class="navbar-brand logo" href="/"><img src="/imagenes/parkwhite.png" alt="logotipo" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-danger" th:href="@{/}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" th:href="@{/Reserva/Listar}">Reservaciones</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-danger" th:href="@{/Funcion}">¿Cómo funciona?</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-danger" th:href="@{/Contacto/Agregar}">Contacto </a>
+                    </li>
+
+                </ul>
+                <div th:if="${!user}">
+                    <a th:href="@{/usuario/validar}" class="btn btn-outline-warning">Iniciar sesión</a>
+                    <a th:href="@{/usuario/agregar}" class="btn btn-outline-primary">Registrar</a>
+                </div>
+                <div th:if="${user}">
+
+                    <div class="nav-item dropdown">
+                        <a th:text="${nombreU}" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" th:href="@{/Autos/listar}">Autos</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" th:href="@{/Reserva/Agregar}">Hacer una reservación</a>
+                            <div class="dropdown-divider"></div>
+                            <a th:href="@{/Contacto/Listar}" class="dropdown-item">(BETA) Ver mensajes de contacto</a>
+                            <a class="dropdown-item" th:href="@{/usuario/salir}">Cerrar sesión</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        <hr />
+        <section layout:fragment="content"></section>
+
+        <footer class="footer pie__index">
+            <p class="footer__texto">José Ricardo Ortega Cazares -- Jonathan Ibarra Zapotitla-- Sarahi Salazar Garcia --
+                Mauricio Garcia Ciriaco</p>
+        </footer>
+    </div>
+
+</body>

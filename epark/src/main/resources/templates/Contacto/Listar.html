@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+
+<head>
+    <meta charset="utf-8">
+    <title>Listado de mensajes</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <div class="container">
+            <div class="jumbotron bg-dark">
+                <h1 class="display-4 text-white">Datos de usuarios registrados para contactar</h1>
+                <div th:if="*{error != null}" class="alert alert-warning alert-dimissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <h4 th:text="*{error}"></h4>
+                </div>
+                <div class="row">
+                    <a class="btn btn-info" th:href="@{/Contacto/Agregar}">Registrar</a>
+                </div>
+                <hr class="my-4">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+
+
+                        <table class="table table-hover table-dark table-striped">
+                            <thead>
+                                <th scope="col">Nombre completo</th>
+                                <th scope="col">Correo</th>
+                                <th scope="col">Mensaje</th>
+                                <th scope="col">Acciones</th>
+                            </thead>
+                            <tbody th:if="*{contactos != null}">
+                                <tr data-th-each="contacto : ${contactos}">
+                                    <td data-th-text="${contacto.nombreCompleto}"></td>
+                                    <td data-th-text="${contacto.correo}"></td>
+                                    <td data-th-text="${contacto.mensaje}"></td>
+                                    <td>
+                                        <a th:href="'/Contacto/Eliminar/' + ${contacto.idContacto}"
+                                            class="btn btn-danger">Contactado</a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

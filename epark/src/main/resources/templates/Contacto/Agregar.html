@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+
+<head>
+    <meta charset="utf-8">
+    <title>Registrar mensaje</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <div class="container">
+            <div class="jumbotron bg-dark">
+                <h1 class="display-4 text-white">Registro de mensaje nuevos</h1>
+                <p class="lead text-white">Introduce los datos de registros</p>
+                <hr class="my-4">
+                <p class="text-danger">*Todos los datos son obligatorios</p>
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <div th:if="*{error != null}" class="alert alert-warning alert-dimissible fade show"
+                            role="alert">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <h4 th:text="*{error}"></h4>
+                        </div>
+                        <form action="#" th:action="@{Agregar}" th:object="${usuario}" method="POST" class="text-white">
+                            <div class="form-group">
+                                <label for="nombre">Nombre completo:</label>
+                                <input type="text" name="nombreCompleto" id="txtnombre" th:field="*{nombreCompleto}"
+                                    class="form-control" placeholder="Ingresa tu nombre completo incluyendo apellidos" required="required"
+                                    maxlength="80">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Correo electrónico:</label>
+                                <input type="email" name="correo" id="txtcorreo" class="form-control"
+                                    th:field="*{correo}" placeholder="Correo electrónico" required="required"
+                                    maxlength="100">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nombre">Mensaje:</label>
+                                <textarea name="mensaje" id="txtnombre" th:field="*{mensaje}"
+                                    class="form-control" placeholder="Escriba su mensaje" required="required"
+                                    maxlength="200"></textarea>
+                            </div>                            
+                            <button type="submit" class="btn btn-primary">Agregar</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

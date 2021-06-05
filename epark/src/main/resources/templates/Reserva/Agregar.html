@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+
+<head>
+    <meta charset="utf-8">
+    <title>Relizar una reserva</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <div th:if="*{mensaje != null}" class="alert alert-warning alert-dimissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4 th:text="*{mensaje}"></h4>
+        </div>
+        <br>
+        <main class="jumbotron bg-dark">
+            <h2 class="display-4 text-white">Complete los campos para guardar</h2>
+            <hr class="my-4">
+            <p class="text-danger">*Todos los datos son obligatorios</p>
+            <div class="text-white">
+                <a class="btn btn-info" th:href="@{/Reserva/Listar}">Ver registros</a>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <form action="#" th:action="@{Agregar}" method="POST">
+                        
+                        <div class="form-group text-white">
+                            <label for="idautomovil">Automovil:</label>
+                            <select class="form-control" name="idautomovil" id="idautomovil">
+                                <option th:each="marca:${marcas}" th:value="${marca.idAutomovil}"
+                                    th:text="${marca.modelo}"></option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group text-white">
+                            <label for="fechainicio">Fecha de inicio:</label>
+                            <input type="date" name="fechaIngreso" id="fechainicio"
+                                class="form-control"
+                                required="required" th:min="${tiempo}">
+                        </div>
+
+                        <div class="form-group text-white">
+                            <label for="fechainicio">Fecha de salida:</label>
+                            <input type="date" name="fechaSalida" id="fechainicio"
+                                class="form-control"
+                                required="required" th:min="${tiempo}">
+                        </div>
+
+                        <div class="form-group text-white">
+                            <label for="fechainicio">Hora de entrada:</label>
+                            <input type="time" name="horaEntrada" id="fechainicio"
+                                class="form-control"
+                                required="required" >
+                        </div>
+
+                        <div class="form-group text-white">
+                            <label for="fechainicio">Hora de salida:</label>
+                            <input type="time" name="horaSalida" id="fechainicio"
+                                class="form-control"
+                                required="required">
+                        </div>
+
+
+
+                        <div class="alinear-derecha flex">
+                            <input class="btn btn-primary mb-2" type="submit" value="Registrar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
