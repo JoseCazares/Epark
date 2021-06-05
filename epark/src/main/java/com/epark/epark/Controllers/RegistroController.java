@@ -65,6 +65,11 @@ public class RegistroController {
             return null;
         }
     }
+    
+    private void currentUser(HttpSession sesion) {
+            int iduser = Integer.parseInt(sesion.getAttribute("iduser").toString());
+            currentUser = servicioCliente.FindById(iduser);
+    }
 
     @GetMapping("/Reserva/Listar")
     public String Listar(Model modelo, HttpSession sesion) {
@@ -85,9 +90,7 @@ public class RegistroController {
                 return "redirect:/Autos/listar";
             }
 
-            if (currentUser == null) {
-                currentUser = servicioCliente.FindById(iduser);
-            }
+            currentUser(sesion);
             modelo.addAttribute("user", true);
             modelo.addAttribute("nombreU", currentUser.getUsuario());
 
@@ -110,9 +113,7 @@ public class RegistroController {
                 session.setAttribute("mensajeReg", "Ultimo aviso: Ya hay una reserva activa para este usuario ");
                 return "redirect:/Reserva/Error";
             }
-            if (currentUser == null) {
-                currentUser = servicioCliente.FindById(iduser);
-            }
+            currentUser(session);
             model.addAttribute("user", true);
             model.addAttribute("nombreU", currentUser.getUsuario());
             Iterable<Automovil> autom = obtenerListaAutomovil(session);
@@ -189,9 +190,7 @@ public class RegistroController {
     public String error(HttpSession sesion, Model model) {
         try {
             int iduser = Integer.parseInt(sesion.getAttribute("iduser").toString());
-            if (currentUser == null) {
-                currentUser = servicioCliente.FindById(iduser);
-            }
+            currentUser(sesion);
             model.addAttribute("user", true);
             model.addAttribute("nombreU", currentUser.getUsuario());
             model.addAttribute("message", sesion.getAttribute("mensajeReg"));
