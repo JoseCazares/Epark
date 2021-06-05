@@ -13,7 +13,7 @@
                 <h1 class="display-4 text-white">Autos registrados para el usuario</h1>
                 <div th:if="*{error != null}" class="alert alert-warning alert-dimissible fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <h4 th:text="*{error}"></h4>
+                    <h4 th:text="${error}">ent</h4>
                 </div>
                 <div class="row">
                     <a class="btn btn-info" th:href="@{/Autos/agregar}">Registrar auto</a>
