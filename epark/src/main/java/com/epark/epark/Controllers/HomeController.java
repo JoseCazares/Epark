@@ -29,10 +29,9 @@ public class HomeController {
             }
         } catch (Exception e) {
             modelo.addAttribute("user", false);
-            modelo.addAttribute("nombreU", "");
         }
 
-        return "/Home/Index";
+        return "Home/Index";
     }	
 
     @GetMapping("/funcion")
@@ -45,9 +44,9 @@ public class HomeController {
             }
         } catch (Exception e) {
             modelo.addAttribute("user", false);
-            modelo.addAttribute("nombreU", currentUser.getUsuario());   
+
         }
 
-        return "/Home/Funcion";
+        return "Home/Funcion";
     }
 }
